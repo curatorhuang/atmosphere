@@ -1,0 +1,19 @@
+import java.io.*;
+
+public class SaveFile {
+	public void Save(int[] x)
+	{
+
+		try(PrintStream ps = new PrintStream(new FileOutputStream("Sava_1.csv")))
+		{
+			for(int i=0;i<x.length;i++)
+			ps.println(x[i]);
+		}
+		catch(IOException ioe)
+		{
+			ioe.printStackTrace();
+		}
+
+	}
+
+}
