@@ -20,7 +20,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
-public class OriginalSignaTest {
+public class OriginalSignalTest {
 
 	int[] originalSignal = new int[40000];
 	public int[] originalSignalInput() {
@@ -35,8 +35,7 @@ public class OriginalSignaTest {
 			Screen.pis = Screen.pis + h;
 			//fos.seek(Screen.pos);
 			for (int i = 0, j = 0,k=0; h > 1 && i < h -1; i = i + 2, j++) {
-				//originalSignal[j] = 570-new OriginalSignaTest().getInt(bbuf[i + 1], bbuf[i])/20;	
-				originalSignal[j] = new OriginalSignaTest().getInt(bbuf[i + 1], bbuf[i]);	
+				originalSignal[j] = new OriginalSignalTest().getInt(bbuf[i + 1], bbuf[i]);	
 				//fos.writeBytes(originalSignal[j]+"*");
 			}
 
