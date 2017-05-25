@@ -47,6 +47,11 @@ public class Screen {
 	static int[] signal2=new int[200];//本为100，多处100是冗余，符合消光系数的数组
 	static int[] signal3=new int[5];
 	
+	JPanel jp = new JPanel();
+	Button bt = new Button("开始");
+	TextField tf = new TextField(40);
+	static String a ;
+	
 	
 	public void init() throws IOException {
 
@@ -73,6 +78,12 @@ public class Screen {
 		mb.add(file);
 		mb.add(setting);
 		f.setJMenuBar(mb);
+		
+		
+		//添加文本框
+				jp.add(tf);
+				jp.add(bt);
+				jf2.add(jp,SOUTH);
 	
 		// 250毫秒刷新一次图像
 		timer = new Timer(250, new ActionListener() {
@@ -84,7 +95,17 @@ public class Screen {
 				h=0;
 			}
 		});
+		
+		bt.addActionListener(new ActionListener()
+		{
+	public void actionPerformed(ActionEvent e)
+	{
+		a=tf.getText();
 		timer.start();
+		
+	}
+		});
+		
 
 		// 三块内部屏的显示
 		jf.setVisible(true);

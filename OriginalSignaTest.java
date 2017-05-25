@@ -26,7 +26,7 @@ public class OriginalSignaTest {
 	public int[] originalSignalInput() {
 		try {
 			int h;
-			File f = new File("20170518233444-518.tsk-002.dat");
+			File f = new File("F:/新建文件夹/"+Screen.a+".dat");
 			RandomAccessFile fis = new RandomAccessFile(f, "r");
 			//RandomAccessFile fos = new RandomAccessFile("Save.txt","rw");
 			byte[] bbuf = new byte[80000];
