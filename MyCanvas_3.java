@@ -49,7 +49,7 @@ public class MyCanvas_3 extends JPanel {
 		
 		//求结构常数
 		MyCanvas_3 mc_3 = new MyCanvas_3();
-		int b= mc_3.max(Screen.signal1, 12);
+		int b= mc_3.max(Screen.signal1, 8);
 		double k1 =(2*Math.PI/(620*Math.pow(10, -9))),
 				d=0.496*Math.pow(k1, (float)7/6)*Math.pow(25, (float)11/6),
 				e=1+0.214*Math.pow((k1*0.008*0.008/100),(float)7/6),
