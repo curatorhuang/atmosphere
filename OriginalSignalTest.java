@@ -22,24 +22,23 @@ import javax.swing.JPanel;
 
 public class OriginalSignalTest {
 
-	int[] originalSignal = new int[40000];
+	int[] originalSignal = new int[80000];
 	public int[] originalSignalInput() {
 		try {
 			int h;
 			File f = new File("F:/新建文件夹/"+Screen.a+".dat");
 			RandomAccessFile fis = new RandomAccessFile(f, "r");
-			//RandomAccessFile fos = new RandomAccessFile("Save.txt","rw");
-			byte[] bbuf = new byte[80000];
+			byte[] bbuf = new byte[160000];
 			fis.seek(Screen.pis);	//每次都把指针移动上上次刷新的结尾处
 			h = fis.read(bbuf);
 			Screen.pis = Screen.pis + h;
-			//fos.seek(Screen.pos);
 			for (int i = 0, j = 0,k=0; h > 1 && i < h -1; i = i + 2, j++) {
 				originalSignal[j] = new OriginalSignalTest().getInt(bbuf[i + 1], bbuf[i]);	
-				//fos.writeBytes(originalSignal[j]+"*");
+				if(originalSignal[j]<0)
+					originalSignal[j]=0;
+	//			System.out.println((float)originalSignal[j]/1000000+"==========="+j);
 			}
 
-			//Screen.pos=Screen.pos+h/2;
 
 		} catch (Exception e) {
 			System.out.println("wrong" + e.toString());
@@ -65,7 +64,8 @@ public class OriginalSignalTest {
 		if (a == 32768)
 			r = -r;
 		h = (float) r / w;
-		j = (int) (h * 10000);
+		
+		j = (int) (h * 1000000);
 		return j;
 	}
 
